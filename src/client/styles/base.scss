@@ -1,0 +1,20 @@
+$font-stack: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #ffdfdf;
+    color: #030404;
+    font-family: 100% $font-stack;
+    font-size: 35px;
+}
+
+main {
+    flex: 2;
+}
+
+section {
+    max-width: 800px;
+    margin: 50px auto;
+}
