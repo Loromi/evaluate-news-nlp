@@ -6,10 +6,17 @@ import './styles/footer.scss'
 import './styles/form.scss'
 import './styles/header.scss'
 
-console.log(checkForName);
-
-alert("I EXIST")
-console.log("CHANGE!!");
+fetch("https://localhost:8080/get_data", {
+    method: "POST",
+    mode: "cors",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify()
+}).then(res => res.json())
+    .then(data => {
+        console.log(data)
+    });
 
 export {
     checkForName,
