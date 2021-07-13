@@ -9,6 +9,7 @@ const lang = "&lang=en";
 
 /* Setup empty JS object to act as endpoint for all routes */
 projectData = {};
+/* Setup Array to store user input */
 
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 var path = require('path');
@@ -37,13 +38,28 @@ app.listen(8080, function () {
   console.log('Example app listening on port 8080!')
 });
 
+// post route for /addDataAPI
+app.post('/addDataAPI', (req, res) => {
+  console.log('#_____ got request.')
+  data.push(req.body);
+  console.log(data);
+  let newEntry = {
+    userInput: req.body.textUser
+  }
+  getSentimentAPI(baseUrl, API_KEY, jsonSelector, newEntry.userInput, lang)
+    .then(function (data) {
+      projectData = data
+      res.send(projectData);
+    })
+});
+
 app.get('/test', function (req, res) {
   res.send(mockAPIResponse)
 });
 
 /* Return data to client side */
 app.post('/return_data', (req, res) => {
-  return { latestEntry };
+  return { projectData };
 })
 
 app.get('/return_data', (req, res) => {
