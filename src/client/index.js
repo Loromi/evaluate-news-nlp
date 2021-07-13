@@ -6,7 +6,7 @@ import './styles/footer.scss'
 import './styles/form.scss'
 import './styles/header.scss'
 
-fetch("https://localhost:8080/get_data", {
+fetch('https://localhost:8080/return_data', {
     method: "POST",
     mode: "cors",
     headers: {
