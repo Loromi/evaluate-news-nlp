@@ -11,8 +11,13 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 var path = require('path');
 const express = require('express');
 const mockAPIResponse = require('./mockAPI.js');
-
 const app = express();
+const bodyParser = require('body-parser')
+const fetch = require('node-fetch');
+
+/* Middleware*/
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.use(express.static('dist'));
 
@@ -32,7 +37,7 @@ app.get('/test', function (req, res) {
   res.send(mockAPIResponse)
 });
 
-const fetch = require("node-fetch");
+
 
 // MeaningCloud sentiment-analysis:
 // from https://learn.meaningcloud.com/developer/sentiment-analysis/2.1/dev-tools
