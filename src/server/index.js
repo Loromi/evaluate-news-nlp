@@ -41,6 +41,15 @@ app.get('/test', function (req, res) {
   res.send(mockAPIResponse)
 });
 
+/* Return data to client side */
+app.post('/return_data', (req, res) => {
+  return { latestEntry };
+})
+
+app.get('/return_data', (req, res) => {
+  res.send(projectData)
+})
+
 
 
 // MeaningCloud sentiment-analysis:
