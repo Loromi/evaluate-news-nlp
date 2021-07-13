@@ -7,6 +7,9 @@ const apiKey = process.env.API_KEY
 const jsonSelector = "&of=json&txt=";
 const lang = "&lang=en";
 
+/* Setup empty JS object to act as endpoint for all routes */
+projectData = {};
+
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 var path = require('path');
 const express = require('express');
