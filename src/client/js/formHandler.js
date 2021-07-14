@@ -1,9 +1,13 @@
 import { checkForName } from './nameChecker'
 
+// check what text was put into the form field
+// let formText = document.querySelector('#textInput').value
+// checkForName(formText)
+
 function handleSubmit(event) {
     event.preventDefault()
 
-    appData = document.querySelector('textInput').value;
+    let appData = document.querySelector('#textInput').value;
 
     postAppData('http://localhost:8080/addDataAPI', { textUser: appData })
         .then(() => fetch("http://localhost:8080/return_data"))
@@ -11,10 +15,11 @@ function handleSubmit(event) {
         .then(data => {
             console.log('data received from localhost:8080')
             console.log(data)
+            updateUI(data)
         })
 };
 
-/* funtion to post user input to server  */
+/* funtion to post user input to server */
 const postAppData = async (url = '', data = {}) => {
     const response = await fetch(url, {
         method: 'POST',
@@ -32,17 +37,24 @@ const postAppData = async (url = '', data = {}) => {
     } catch (error) {
         console.log("error", error);
     }
-}
+};
 
-// check what text was put into the form field
-let formText = document.getElementById('name').value
-checkForName(formText)
+// update UI with new entry
+const updateUI = (newData) => {
+
+    document.querySelector('#agreement').innerHTML = "Agreement: " + newData.agreement.toLowerCase();
+    document.querySelector('#confidence').innerHTML = "Confidence: " + newData.confidence + "%";
+    document.querySelector('#irony').innerHTML = "Irony: " + newData.irony.toLowerCase();
+    document.querySelector('#subjectivity').innerHTML = "Subjectivity: " + newData.subjectivity.toLowerCase();
+    document.querySelector('#score__tag').innerHTML = "Sentiment: " + agreementAnalysis(newData.score_tag);
+};
 
 console.log("::: Form Submitted :::")
-fetch('http://localhost:8080/test')
-    .then(res => res.json())
-    .then(function (res) {
-        document.getElementById('results').innerHTML = res.message
-    });
+
+// fetch('http://localhost:8080/test')
+//     .then(res => res.json())
+//     .then(function (res) {
+//         document.getElementById('results').innerHTML = res.message
+//     });
 
 export { handleSubmit }
