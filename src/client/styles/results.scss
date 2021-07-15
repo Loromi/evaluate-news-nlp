@@ -1,5 +1,16 @@
+#results {
+    display: flex;
+}
+
+#latestEntry {
+    justify-content: left;
+    width: 60%;
+}
+
 #scoreKey {
+    justify-content: right;
+    width: 35%;
     border: 1px solid #f0c0c0;
+    font-size: small;
     font-weight: lighter;
-    font-size: smaller;
 }
