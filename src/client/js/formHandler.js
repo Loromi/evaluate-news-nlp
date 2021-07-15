@@ -1,9 +1,3 @@
-import { checkForName } from './nameChecker'
-
-// check what text was put into the form field
-// let formText = document.querySelector('#textInput').value
-// checkForName(formText)
-
 function handleSubmit(event) {
     event.preventDefault()
 
@@ -48,13 +42,5 @@ const updateUI = (newData) => {
     document.querySelector('#subjectivity').innerHTML = "Subjectivity: " + newData.subjectivity.toLowerCase();
     document.querySelector('#score__tag').innerHTML = "Sentiment: " + newData.score_tag;
 };
-
-console.log("::: Form Submitted :::")
-
-// fetch('http://localhost:8080/test')
-//     .then(res => res.json())
-//     .then(function (res) {
-//         document.getElementById('results').innerHTML = res.message
-//     });
 
 export { handleSubmit }
