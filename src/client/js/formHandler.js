@@ -46,7 +46,7 @@ const updateUI = (newData) => {
     document.querySelector('#confidence').innerHTML = "Confidence: " + newData.confidence + "%";
     document.querySelector('#irony').innerHTML = "Irony: " + newData.irony.toLowerCase();
     document.querySelector('#subjectivity').innerHTML = "Subjectivity: " + newData.subjectivity.toLowerCase();
-    document.querySelector('#score__tag').innerHTML = "Sentiment: " + agreementAnalysis(newData.score_tag);
+    document.querySelector('#score__tag').innerHTML = "Sentiment: " + newData.score_tag;
 };
 
 console.log("::: Form Submitted :::")
