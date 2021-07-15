@@ -4,7 +4,7 @@ dotenv.config();
 /* URL variables for API call */
 const baseURL = 'https://api.meaningcloud.com/sentiment-2.1?key=';
 const apiKey = process.env.API_KEY
-const jsonSelector = "&of=json&txt=";
+const jsonSelector = "&of=json&url=";
 const lang = "&lang=en";
 
 /* Setup empty JS object to act as endpoint for all routes */
