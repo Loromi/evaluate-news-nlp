@@ -65,37 +65,7 @@ app.post('/return_data', (req, res) => {
 
 app.get('/return_data', (req, res) => {
   res.send(projectData)
-})
-
-
-
-// MeaningCloud sentiment-analysis:
-// from https://learn.meaningcloud.com/developer/sentiment-analysis/2.1/dev-tools
-
-// const FormData = require('form-data');
-// const fs = require('fs');
-// const formdata = new FormData();
-// formdata.append("key", process.env.API_KEY);
-// formdata.append("txt", "YOUR TEXT HERE");
-// formdata.append("lang", "en");  // 2-letter code, like en es fr ...
-
-// const requestOptions = {
-//   method: 'POST',
-//   body: formdata,
-//   redirect: 'follow'
-// };
-
-// const response = fetch("https://api.meaningcloud.com/sentiment-2.1", requestOptions)
-//   .then(response => ({
-//     status: response.status,
-//     body: response.json()
-//   }))
-//   .then(({ status, body }) => console.log(status, body))
-//   .catch(error => console.log('error', error));
-
-// app.post("/get_data", (req, res) => {
-//   return formdata;
-// })
+}),
 
 /* Function to call the API */
 const getSentimentAPI = async (baseUrl, apiKey, jsonSelector, userInput, lang) => {
