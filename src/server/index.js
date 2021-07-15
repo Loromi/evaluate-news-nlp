@@ -65,7 +65,7 @@ app.post('/return_data', (req, res) => {
 
 app.get('/return_data', (req, res) => {
   res.send(projectData)
-}),
+})
 
 /* Function to call the API */
 const getSentimentAPI = async (baseUrl, apiKey, jsonSelector, userInput, lang) => {
