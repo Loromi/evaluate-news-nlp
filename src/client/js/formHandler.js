@@ -1,5 +1,6 @@
 import { postAppData } from './appData.js';
-import { updateUI } from './updateUI.js'
+import { updateUI } from './updateUI.js';
+import { checkUserInput } from './urlChecker.js';
 
 /* 
 handle the input form
@@ -13,14 +14,21 @@ function handleSubmit(event) {
 
     let appData = document.querySelector('#textInput').value;
 
-    postAppData('http://localhost:8080/addDataAPI', { textUser: appData })
-        .then(() => fetch("http://localhost:8080/return_data"))
-        .then(res => res.json())
-        .then(data => {
-            console.log('data received from localhost:8080')
-            console.log(data)
-            updateUI(data)
-        })
+    let checkURL = checkUserInput(appData);
+    if (checkURL === 0) {
+        window.alert('Text cannot be blank!');
+    } else if (checkURL === 1) {
+        window.alert('This is not a valid URL!');
+    } else {
+        postAppData('http://localhost:8080/addDataAPI', { textUser: appData })
+            .then(() => fetch("http://localhost:8080/return_data"))
+            .then(res => res.json())
+            .then(data => {
+                console.log('data received from localhost:8080')
+                console.log(data)
+                updateUI(data)
+            })
+    }
 };
 
 export { handleSubmit }
