@@ -8,8 +8,9 @@ const jsonSelector = "&of=json&txt=";
 const lang = "&lang=en";
 
 /* Setup empty JS object to act as endpoint for all routes */
-projectData = {};
+let projectData = {};
 /* Setup Array to store user input */
+const data = [];
 
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 var path = require('path');
@@ -46,7 +47,7 @@ app.post('/addDataAPI', (req, res) => {
   let newEntry = {
     userInput: req.body.textUser
   }
-  getSentimentAPI(baseUrl, API_KEY, jsonSelector, newEntry.userInput, lang)
+  getSentimentAPI(baseURL, apiKey, jsonSelector, newEntry.userInput, lang)
     .then(function (data) {
       projectData = data
       res.send(projectData);
