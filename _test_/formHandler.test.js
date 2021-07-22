@@ -3,7 +3,6 @@ enableFetchMocks();
 import { handleSubmit } from "../src/client/js/formHandler.js";
 import fetchMock from "jest-fetch-mock";
 const mockAPIResponse = require("../src/server/mockAPI.js");
-import "whatwg-fetch";
 
 //Allows use of fetch in the Node environment
 beforeAll(() => {
