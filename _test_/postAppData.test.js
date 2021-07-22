@@ -1,7 +1,7 @@
-import { postAppData } from '../src/client/js/appData.js';
+import { postAppData, response, newData, url } from '../src/client/js/appData.js';
 
 
-test('the data is peanut butter', done => {
+test('fetch App data', done => {
     function postAppData() {
       try {
         expect(response.json()).toBe(newData);
@@ -10,6 +10,4 @@ test('the data is peanut butter', done => {
         done(error);
       }
     }
-  
-    response(url);
   });
