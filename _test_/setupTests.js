@@ -2,4 +2,6 @@
 
 import 'regenerator-runtime/runtime';
 
-jest.setTimeout(10000)
+jest.setTimeout(10000);
+
+global.fetch = require('jest-fetch-mock')
