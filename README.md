@@ -55,3 +55,6 @@ $ npm start
 ```
 $ npm test
 ```
+
+## Example
+<img width="854" alt="Screenshot 2022-01-26 at 18 46 36" src="https://user-images.githubusercontent.com/77970573/151218061-7fbc81df-0852-4b36-b746-10e9245b4f69.png">
